@@ -34,41 +34,72 @@
         line-height: 100px;
     }
 
-    .bg1 {
+    #bg1,
+    #t1 {
         background: blue;
     }
 
-    .bg2 {
+    #bg2,
+    #t2 {
         background: red;
     }
 
-    .bg3 {
+    #bg3,
+    #t3 {
         background: yellow;
     }
 
-    .bg4 {
+    #bg4. #t4 {
         background: green;
     }
 
-    .bg5 {
+    #bg5,
+    #t5 {
         background: pink;
     }
 
     .main {
+        position: relative;
         background: gray;
         flex-grow: 1;
+    }
+
+    #t1,
+    #t2,
+    #t3,
+    #t4,
+    #t5 {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
     }
 </style>
 
 <body>
     <div class="menu">
-        <div class="menu-item bg1">HOME</div>
-        <div class="menu-item bg2">HOURS</div>
-        <div class="menu-item bg3">LOCATION</div>
-        <div class="menu-item bg4">SALE</div>
-        <div class="menu-item bg5">ABOUT</div>
+        <div id="bg1" class="menu-item">HOME</div>
+        <div id="bg2" class="menu-item">HOURS</div>
+        <div id="bg3" class="menu-item">LOCATION</div>
+        <div id="bg4" class="menu-item">SALE</div>
+        <div id="bg5" class="menu-item">ABOUT</div>
     </div>
     <div class="main">
-        Let's do this
+        <div id="t1" class="tab">
+            HOME
+        </div>
+        <div id="t2" class="tab">
+            HOURS
+        </div>
+        <div id="t3" class="tab">
+            LOCATION
+        </div>
+        <div id="t4" class="tab">
+            SALE
+        </div>
+        <div id="t5" class="tab">
+            ABOUT
+        </div>
     </div>
 </body>
