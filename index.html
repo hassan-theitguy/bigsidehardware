@@ -104,6 +104,16 @@
     p {
         margin: 3vw;
     }
+
+    #map {
+        width: 400px;
+        height: 300px;
+        display: inline-block;
+        background: url(map.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        margin-top: 20px;
+    }
 </style>
 
 <body>
@@ -145,12 +155,7 @@
             </p>
         </div>
         <div id="t3" class="tab">
-            <br />
-            <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=-61.40966892242432%2C10.578018844916542%2C-61.37945652008057%2C10.6037512458575&amp;layer=mapnik&amp;marker=10.590885315498955%2C-61.39456272125244"
-                style="border: 1px solid black"></iframe><br /><small><a
-                    href="https://www.openstreetmap.org/?mlat=10.5909&amp;mlon=-61.3946#map=15/10.5909/-61.3946">View
-                    Larger Map</a></small>
+            <div id="map"></div>
         </div>
         <div id="t4" class="tab">
             <br />SALE
@@ -172,6 +177,7 @@
         $('.tab').hide();
         $('#t1').show();
         setback(1);
+        resizeMap();
 
         $('.menu-item').click(function () {
             var index = $(this).attr("id").substr(-1);
@@ -183,5 +189,20 @@
         function setback(i) {
             $('body').css("background", $('#t' + i).css("background"));
         }
+
+        function resizeMap() {
+            if ($('#t3').height() > $('#t3').width()) {
+                $('#map').width($('#t3').width() - 20);
+                $('#map').height($('#map').width());
+            }
+            else {
+                $('#map').height($('#t3').height() - 20);
+                $('#map').width($('#map').height());
+            }
+        }
+
+        $(window).resize(function () {
+            resizeMap();
+        });
     });
 </script>
