@@ -8,12 +8,17 @@
     <meta name="author" content="Webmaster">
     <meta name="description" content="Homepage">
     <meta name="keywords" content="">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <script src="js/jquery-3.5.1.min.js"></script>
 </head>
 
 <style>
     html,
     body {
         height: 100%;
+        font-family: 'Montserrat', serif;
+        font-size: 3vw;
     }
 
     body {
@@ -30,37 +35,40 @@
 
     .menu-item {
         text-align: center;
-        height: 100px;
-        line-height: 100px;
+        height: 10vw;
+        line-height: 10vw;
+        cursor: pointer;
+        font-size: 3vw;
     }
 
     #bg1,
     #t1 {
-        background: blue;
+        background: #FF934F;
     }
 
     #bg2,
     #t2 {
-        background: red;
+        background: #D999B9;
     }
 
     #bg3,
     #t3 {
-        background: yellow;
+        background: #7EB2DD;
     }
 
-    #bg4. #t4 {
-        background: green;
+    #bg4,
+    #t4 {
+        background: #79C99E;
     }
 
     #bg5,
     #t5 {
-        background: pink;
+        background: #97DB4F;
     }
 
     .main {
         position: relative;
-        background: gray;
+        background: white;
         flex-grow: 1;
     }
 
@@ -75,6 +83,27 @@
         top: 0;
         left: 0;
     }
+
+    .tab {
+        text-align: center;
+    }
+
+    #hours {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #hours .col1 {
+        text-align: right;
+    }
+
+    #hours .col2 {
+        text-align: left;
+    }
+
+    p {
+        margin: 3vw;
+    }
 </style>
 
 <body>
@@ -87,19 +116,72 @@
     </div>
     <div class="main">
         <div id="t1" class="tab">
-            HOME
+            <br />WELCOME
+            <p>
+                Thank you for visiting our website. Feel free to contact us by whatsapp, email or social media.
+            </p>
         </div>
         <div id="t2" class="tab">
-            HOURS
+            <br />HOURS
+            <p>
+            <table id="hours">
+                <tr>
+                    <td class="col1">Monday to Thursday : </td>
+                    <td class="col2">8am to 5pm</td>
+                </tr>
+                <tr>
+                    <td class="col1">Friday : </td>
+                    <td class="col2">8am to 6pm</td>
+                </tr>
+                <tr>
+                    <td class="col1">Saturday : </td>
+                    <td class="col2">9am to 2pm</td>
+                </tr>
+                <tr>
+                    <td class="col1">Sunday and Holidays : </td>
+                    <td class="col2">CLOSED</td>
+                </tr>
+            </table>
+            </p>
         </div>
         <div id="t3" class="tab">
-            LOCATION
+            <br />
+            <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=-61.40966892242432%2C10.578018844916542%2C-61.37945652008057%2C10.6037512458575&amp;layer=mapnik&amp;marker=10.590885315498955%2C-61.39456272125244"
+                style="border: 1px solid black"></iframe><br /><small><a
+                    href="https://www.openstreetmap.org/?mlat=10.5909&amp;mlon=-61.3946#map=15/10.5909/-61.3946">View
+                    Larger Map</a></small>
         </div>
         <div id="t4" class="tab">
-            SALE
+            <br />SALE
+            <p>
+                We currently have a green tag sale. All items with red tags are reduced by 25%.
+            </p>
         </div>
         <div id="t5" class="tab">
-            ABOUT
+            <br />ABOUT
+            <p>
+                We are a small family owned hardware located in central Trinidad. We started in 1903 by Hamman Mohammed.
+            </p>
         </div>
     </div>
 </body>
+
+<script>
+    $(document).ready(function () {
+        $('.tab').hide();
+        $('#t1').show();
+        setback(1);
+
+        $('.menu-item').click(function () {
+            var index = $(this).attr("id").substr(-1);
+            $('.tab').hide();
+            $('#t' + index).show();
+            setback(index);
+        });
+
+        function setback(i) {
+            $('body').css("background", $('#t' + i).css("background"));
+        }
+    });
+</script>
