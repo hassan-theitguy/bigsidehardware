@@ -111,7 +111,7 @@
 
     #hours .col2 {
         text-align: left;
-        width:40%;
+        width: 40%;
     }
 
     p {
@@ -128,12 +128,9 @@
     }
 
     #map {
-        width: 400px;
-        height: 400px;
-        display: inline-block;
-        background: url(map.png);
-        background-repeat: no-repeat;
-        background-size: contain;
+        width: 100%;
+        max-width: 400px;
+        height: auto;
     }
 
     #map-container {
@@ -198,7 +195,7 @@
         </div>
         <div id="t3" class="tab">
             <div id="map-container">
-                <div id="map"></div>
+                <img id="map" src="map.png" />
                 <div id="address">
                     23 Mango Road<br />
                     Caroni New Lands<br />
@@ -242,14 +239,6 @@
         }
 
         function resizeMap() {
-            if ($('#t3').height() > $('#t3').width()) {
-                $('#map').width($('#t3').width() - 30);
-                $('#map').height($('#map').width());
-            }
-            else {
-                $('#map').height($('#t3').height() - 30);
-                $('#map').width($('#map').height());
-            }
         }
 
         $(window).resize(function () {
